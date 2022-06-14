@@ -40,3 +40,25 @@ let f = 10,
 **Depuracion de proyecto en Javascript.**
 
 Herramientas desarollo=> Fuentes  => Seleccionar la linea como punto de interrupcion.
+
+Funciones de importaciones de js, van al final antes del body.
+
+las formas de declarar las variables no debe de ser en "var""  ya que se puede utilizar bajo el compilador del navegador.
+
+Funciones de alerta o mensajes basicos.
+
+    En archivos js/alerts.js
+
+# Datos primitivos en javascript:
+
+Boolean => true o false.
+
+Null => sin valor absoluto.
+
+Undefined=> una variable pero no se a asignado un valor.
+
+Number => valores.
+
+String => una cadena de caracteres.
+
+Symbol => Tipo de dato unico.

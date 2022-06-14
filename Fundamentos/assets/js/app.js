@@ -22,4 +22,4 @@ console.log('b', b);
 console.table({f,g});
 
 
-
+var miNombre='jesus';
