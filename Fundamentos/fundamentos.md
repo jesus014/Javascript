@@ -62,3 +62,34 @@ Number => valores.
 String => una cadena de caracteres.
 
 Symbol => Tipo de dato unico.
+
+# Palabras reservadas.
+
+Ciertas palabras las cuales no se pueden utilizar ya sea como variables o contexto de programacion.  => try catch. if else.
+
+No se puede inicializar con un numero una variable.
+
+# Arreglos.
+
+Este es un ejemplo de un arreglo, se define por llaves cuadradas []
+
+let videojuegos= ['mario' , 'jesus']
+
+propiedades y funciones de los arreglos.
+
+* //Arreglo principal =>    [ ]
+* 
+* metodo arreglo. length => se utiliza para saber el tamaño del arreglo.
+* 
+* [ 1 ] => se puede saber el valor de la posicion 1 (teniendo en cuenta 			  que empieza en 0).
+* metodo .push('valor') => se puede agregar  a el elemento al arreglo.
+* 
+* metodo .unshift('valor')  =>  se puede agregar a el elemento en la posicion [0]  pasando el valor que se desea agregar.
+* 
+* metodo .pop(); =>  se puede eliminar el  ultimo elemento
+* 
+* metodo .indexof('valor') => se puede saber el index de un elemento  pasando el valor que queremos.
+
+# Objetos literales.
+
+Se tienen diferentes pares de valores.
