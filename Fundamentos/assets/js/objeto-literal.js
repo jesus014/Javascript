@@ -1,4 +1,4 @@
-
+//formas de crear un objeto, con diferentes propiedades.
 let personajes = {
     nombre: 'itachi',
     codeName: 'itachi Dios',
