@@ -101,12 +101,11 @@ las funciones es centralizar la logica  que se puede estar reutilizando a lo lar
 //funcion anonima.
 
 ```
-constsaludar2 = function(nombre){
+const saludar2 = function(nombre){
     console.log(arguments); 
    console.log('hola' + nombre);
 }
 ```
-
 
 si una funcion no tiene un retorno explicito se obtiene un undefine.
 
@@ -115,7 +114,6 @@ si una funcion no tiene un retorno explicito se obtiene un undefine.
 cuando asignamos valores primitivos (Bolean, null, undefined, number, string, symbol) el valor asignado es una copia del valor que estamos asignando:
 
 Cuando asignamos valores *primitivos* ([Boolean](https://developer.mozilla.org/en-US/docs/Glossary/Boolean), [Null](https://developer.mozilla.org/en-US/docs/Glossary/Null), [Undefined](https://developer.mozilla.org/en-US/docs/Glossary/Undefined), [Number](https://developer.mozilla.org/en-US/docs/Glossary/Number), [String](https://developer.mozilla.org/en-US/docs/Glossary/String) y [Symbol](https://developer.mozilla.org/en-US/docs/Glossary/Symbol)),  **el valor asignado es una copia del valor que estamos asignando** :
-
 
 1. let a ='hola';
 2. let b = a;// asignamos valor de `a` a `b`.
@@ -164,7 +162,7 @@ El operador OR asocia dos términos o frases y busca un registro coincidente si 
 
 Se puede definir como un if simplificado.
 
-tieneMembresia recibe un miembro (number)  el cual 
+tieneMembresia recibe un miembro (number)  el cual
 
 ```
 const tieneMembresia =(miembro)=>miembro ? '2dolares':'10 dolares';
@@ -172,14 +170,11 @@ const tieneMembresia =(miembro)=>miembro ? '2dolares':'10 dolares';
 
 elMayor2 recibe datos a,b(number)  el cual es evaluado si a es mayoa a b. retornas a en caso de que no retorna b
 
-
-
 ```
 const elMayor2=(a,b)=> (a>b)?a:b;
 
 console.log(elMayor2(20,14));
 ```
-
 
 ```
 const tieneMembresia =(miembro)=> miembro ? '2dolares':'10 dolares';
@@ -209,8 +204,6 @@ do{
     j++;
 }while( personajes[j]);
 ```
-
-
 
 while.
 
