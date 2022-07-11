@@ -1,3 +1,41 @@
+# Clases.
+
+La sintaxis de las clases **no** introduce un nuevo modelo de herencia orientada a objetos en JavaScript. Las clases de JavaScript proveen una sintaxis mucho más clara y simple para crear objetos y lidiar con la herencia.
+
+```javascript
+class Rectangulo {
+  constructor(alto, ancho) {
+    this.alto = alto;
+    this.ancho = ancho;
+  }
+}
+```
+
+Las clases son "funciones especiales", como las expresiones de funciones y declaraciones de funciones, la sintaxis de una clase tiene dos componentes: expresiones de clases y declaraciones dee clases.
+
+```javascript
+// Anonima
+let Rectangulo = class {
+  constructor(alto, ancho) {
+    this.alto = alto;
+    this.ancho = ancho;
+  }
+};
+
+console.log(Rectangulo.name);
+// output: "Rectangulo"
+
+// Nombrada
+let Rectangulo = class Rectangulo2 {
+  constructor(alto, ancho) {
+    this.alto = alto;
+    this.ancho = ancho;
+  }
+};
+console.log(Rectangulo.name);
+// output: "Rectangulo2"
+```
+
 # gets y sets en javascript:
 
 ayudan a obtener y/o modificar una propiedad de tu clase.
@@ -69,6 +107,6 @@ Moneda.modificarCambio(1.50);
 
 SINGLETON:
 
-es un concepto de programacion en el cual se trata de tener una clase que cuando se intente volver a instanciar verifique si ya se ha creado anteriormente y si no, entonces crea la instancia y si ya habiamos creado una entonces se usa la misma. 
+es un concepto de programacion en el cual se trata de tener una clase que cuando se intente volver a instanciar verifique si ya se ha creado anteriormente y si no, entonces crea la instancia y si ya habiamos creado una entonces se usa la misma.
 
 la idea del Singleton.instancia es mantener una unica instancia de la clase  y si eso existe usamos la misma.
