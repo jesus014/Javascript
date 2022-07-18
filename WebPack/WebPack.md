@@ -20,11 +20,9 @@ Nos permite trabajar con js moderno.
 
 compilar ts y js.
 
-
 Se utiliza para definir comandos o paquetes que se utilizaran en el proyecto para su buen funcionamiento.
 
 una  herramienta Open Source utilizada por los desarrolladores para empaquetar y exportar todos los ficheros necesarios para que un proyecto funcione con todas sus dependencias frontend .
-
 
 ### desventajas de webpack
 
@@ -34,7 +32,6 @@ complicado al detectar problemas con algun paquete.
 
 ### Inicio de packge.json
 
-
 e coloca toda la **información** que se conoce sobre el mismo. Este archivo es un simple fichero de texto, en formato JSON que incorpora a través de varios campos información muy variada.
 
 Este fichero tiene una estructura definida muy concreta, y a través de sus campos se puede guardar y recuperar información muy útil.
@@ -43,12 +40,9 @@ Este fichero tiene una estructura definida muy concreta, y a través de sus camp
 npm init
 ```
 
-
-
-
 ### instalacion de webpack:
 
-instalacion de webpack en el proyecto. 
+instalacion de webpack en el proyecto.
 
 https://webpack.js.org/guides/getting-started/
 
@@ -58,14 +52,13 @@ El paquete *webpack* corresponde con el propio Webpack, mientras que el paquete 
 npm install webpack webpack-cli --save-dev
 ```
 
-Uso de este comando para realizar la carpeta de distribucion. 
+Uso de este comando para realizar la carpeta de distribucion.
 
 ```
 npm run build
 ```
 
 ### Instalacion de plugins:
-
 
 * `url-loader`
 * `file-loader`: es de gran ayuda para utilizar binarios dentro de nuestra app con `import`
@@ -78,8 +71,6 @@ npm run build
 npm install --save-dev html-webpack-plugin
 
 ```
-
-
 
 ```
 npm install --save-dev html-loader
@@ -97,7 +88,46 @@ Uso de este comando para realizar tipo servidor.
 npm i -D webpack-dev-server
 ```
 
-
 ```
 npm install --save-dev mini-css-extract-plugin
+```
+
+Img
+
+```console
+npm install file-loader --save-dev
+```
+
+Copiar y mover otros archivos o imagenes.
+
+```console
+npm install copy-webpack-plugin --save-dev
+
+
+```
+
+Minimizacion de codigo css. 
+
+```
+npm i -D css-minimizer-webpack-plugin terser-webpack-plugin
+```
+
+
+
+## Uso y instalacion de Babel
+
+pagina de babel:
+
+https://babeljs.io/setup#installation
+
+
+instalacion de babel.
+
+```
+npm install --save-dev babel-loader @babel/core
+```
+
+
+```
+npm install @babel/preset-env --save-dev
 ```
