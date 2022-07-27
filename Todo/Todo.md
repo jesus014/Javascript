@@ -1,3 +1,8 @@
+## Proyecto de TODO. 
+
+Aplicacion creada utilizando js, utilizando webpack, clases, metodos para manipular el arrelgo de diferente manera.
+
+
 ## Node
 
 correr codigo de javascript en el servidor.
@@ -106,13 +111,11 @@ npm install copy-webpack-plugin --save-dev
 
 ```
 
-Minimizacion de codigo css. 
+Minimizacion de codigo css.
 
 ```
 npm i -D css-minimizer-webpack-plugin terser-webpack-plugin
 ```
-
-
 
 ## Uso y instalacion de Babel
 
@@ -120,13 +123,11 @@ pagina de babel:
 
 https://babeljs.io/setup#installation
 
-
 instalacion de babel.
 
 ```
 npm install --save-dev babel-loader @babel/core
 ```
-
 
 ```
 npm install @babel/preset-env --save-dev
