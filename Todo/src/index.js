@@ -4,7 +4,7 @@ import {Todo , TodoList} from './classes';
 import { crearHtml } from './js/components';
 //creacion y utilizacion de modulos.
 
-
+//se uliza para crear una nueva instancia de TodoList()
 export const todoList = new TodoList();
 
 //const tarea = new Todo('aprender js');
