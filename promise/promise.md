@@ -18,3 +18,6 @@ function procesarEntradaUsuario(callback) {
 
 procesarEntradaUsuario(saludar);
 ```
+
+
+## Promesa.
