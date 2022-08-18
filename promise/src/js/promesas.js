@@ -31,3 +31,45 @@ export const buscarPersonaje = (id) => {
 
 
 }
+
+
+//forma con async
+
+export const buscarPersonajeAsync = async (id) => {
+    const personaje = personajes[id];
+
+
+    //cuando se hace correctamente //cuando falla la promesa
+        if(personaje){
+            return personaje;
+        }
+        else{
+            throw `no existe un heroe con el id ${id}`;
+        }
+
+}
+
+
+
+
+
+
+ const promersaLenta= new Promise((resolve, reject) =>{
+    setTimeout(() => resolve('promersaLenta'),2000);
+});
+
+ const promersaMedia= new Promise((resolve, reject) =>{
+    setTimeout(() => resolve('promersaMedia'),1500);
+});
+
+ const promersaRapida= new Promise((resolve, reject) =>{
+    setTimeout(() => resolve('promersaRapida'),1000);
+});
+
+//diferente manera de exportar archivos.
+export{
+    promersaRapida,
+    promersaMedia,
+    promersaLenta
+}
+

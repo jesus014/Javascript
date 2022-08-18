@@ -1,3 +1,4 @@
+//USO DE CALLBACK Y PROMESAS BASICAS.
 //exportacion de los modulos que se encuentran en la carpeta js y css.
 import{buscarPersonaje as buscarPersonajeCallback} from './js/callbacks'
 import {buscarPersonaje}from './js/promesas'
