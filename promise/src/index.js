@@ -1,6 +1,10 @@
 import {promersaLenta,promersaMedia,promersaRapida} from './js/promesas';
 import {buscarPersonaje, buscarPersonajeAsync} from './js/promesas';
-import {ObtenerPersonajesArr} from './js/await';
+import {ObtenerPersonajesArr, ObtenerPersonajesArr2, 
+        ObtenerPersonajesArr3, obtenerPersonajeAwait,
+         personajesCiclo,personajeIfAwait} from './js/await';
+
+         
 //promersaLenta.then(console.log);
 //promersaMedia.then(console.log);
 //promersaRapida.then(console.log);
@@ -20,5 +24,20 @@ import {ObtenerPersonajesArr} from './js/await';
 //                .catch(console.warn);
 
 
-ObtenerPersonajesArr().then(console.table);
+//ObtenerPersonajesArr().then(console.table);
+//
+//ObtenerPersonajesArr2().then(console.table);
+//
+//ObtenerPersonajesArr3().then(console.table);
 
+console.time('await');
+
+//obtenerPersonajeAwait('itachi2').then(personaje=>{
+//    console.log(personaje);
+//    console.timeEnd('await');
+//})
+
+
+personajesCiclo();
+
+personajeIfAwait('itachi');

@@ -19,5 +19,87 @@ function procesarEntradaUsuario(callback) {
 procesarEntradaUsuario(saludar);
 ```
 
-
 ## Promesa.
+
+Arreglo con el que se trabaja.
+
+```javascript
+const personajes ={
+    naruto:{
+        nombre:'naruto uzumaki',
+        poder:'Rasengan'
+    }, 
+    kakashi:{
+        nombre:'kakashi hatake',
+        poder:'Rasengan'
+    },
+    itachi:{
+        nombre:'itachi ',
+        poder:'el sharingan'
+
+    }
+};
+```
+
+
+
+## Ejemplo de promesa:
+
+Retorna una promesa la cual puede tener dos respuestas. un RESOLVE  si es correcta la peticion o un REJECT en caso contrario.
+
+```javascript
+//esta funcion busca un personaje por medio de un id.
+export const buscarPersonaje = (id) => {
+    const personaje = personajes[id];
+
+
+    //cuando se hace correctamente //cuando falla la promesa
+    return new Promise( (resolve, reject) => {
+
+        if(personaje){
+            resolve(personaje);
+        }
+        else{
+            reject(`no existe un heroe con el id ${id}`);
+        }
+    });
+}
+```
+
+## Promesa de manera async.
+
+```javascript
+export const buscarPersonajeAsync = async (id) => {
+    const personaje = personajes[id];
+
+
+    //cuando se hace correctamente //cuando falla la promesa
+        if(personaje){
+            return personaje;
+        }
+        else{
+            throw `no existe un heroe con el id ${id}`;
+        }
+
+}
+```
+
+## Uso de try catch
+
+
+```javascript
+//uso de try catch
+export const obtenerPersonajeAwait = async (id) => {
+    try {
+        const personaje = await buscarPersonajeAsync(id);
+        return personaje;
+
+    } catch (error) {
+        return{ 
+            nombre:'sin poder',
+             apellido:'sin apellido'
+        }
+    }
+
+};
+```
