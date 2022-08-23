@@ -131,7 +131,7 @@ npm install @babel/preset-env --save-dev
 
 ## Uso de peticion.
 
-Uso de peticion, haciendo uso de try catch. 
+Uso de peticion, haciendo uso de try catch.
 
 ```javascript
     //peticion http get.
@@ -142,13 +142,13 @@ const obtenerChiste = async() => {
         if(!response.ok ) throw alert('no se pudo realizar la peticion');
 
         const {icon_url, id , value} = await response.json();
-      
+    
         return {
             icon_url, 
             id ,
             value
         };
-          
+        
     } catch (error) {
 
         throw error;
@@ -160,12 +160,9 @@ export{
 }
 ```
 
-
 ## Creacion de html desde javascript.
 
-
 Creacion de html desde javascript llamando http-provider para hacer la solicitud.
-
 
 ```javascript
 import { obtenerChiste } from "./http-provider";
@@ -226,4 +223,225 @@ export const init =()=>{
     crearChistesHtml();
     eventos();
 }
+```
+
+
+## usuarios-page.js
+
+
+```javascript
+//se llama al evento ObtenerUsuarios 
+import {obtenerUsuarios } from "./http-provider";
+
+
+const body  = document.body;
+//se declaran las variables
+let  tbody;
+let correlativo =0;
+
+//crear elemento html
+const crearHtml = () => {
+    const html = `
+    <h1 class="mt-5"> Usuarios</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">email</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    `;
+
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    body.appendChild( div );
+
+  
+    tbody = document.querySelector('tbody');
+    // Crear una referencia al TBODY
+    // ya que los TRs van dentro del tbody
+            // querySelector('tbody');
+            // Crear una variable para mantener la referencia?
+
+}
+
+
+// La función crearFilaUsuario debería de recibir un UNICO usuario
+// con la siguiente estructura
+    // {
+    //     "id": 7,
+    //     "email": "michael.lawson@reqres.in",
+    //     "first_name": "Michael",
+    //     "last_name": "Lawson",
+    //     "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/follettkyle/128.jpg"
+    // }
+const crearFilaUsuario = ( usuario ) => {
+
+    // En la tabla deben de colocar un correlativo empezando en 1
+    // También deben de colocar el avatar
+    correlativo ++;
+    const html = `
+        <td scope="col"> ${correlativo} </td>
+        <td scope="col"> ${usuario.email} </td>
+        <td scope="col"> ${usuario.first_name } ${usuario.last_name} </td>
+        <td scope="col">
+            <img class="img-thumbnail" src="${usuario.avatar}">
+        </td>
+    `;
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = html;
+    tbody.appendChild(tr);
+    // Añadir el table row (tr) dentro del TBody creado anteriormente
+
+}
+
+
+export const init = async() => {
+
+    crearHtml();
+    correlativo = 0;
+    // Obtener la lista de usuarios usando el servicio creado
+    // Por cada usuario, llamar la función crearFila (for, forEach)
+    // Colocar el init en el index.js, para que se ejecute la creación
+
+
+    const usuarios= await obtenerUsuarios();
+    usuarios.forEach(crearFilaUsuario);
+
+}
+
+
+```
+
+
+## Http-Provider-js
+
+
+```javascript
+const urlUsuarios='https://reqres.in/api/users?page=2';
+
+
+//uso para obtener informacion
+const obtenerUsuarios= async( ) => {
+
+    const respuesta =await fetch(urlUsuarios);
+    const {data:usuarios} = await respuesta.json();
+
+    console.log(usuarios);
+
+    return usuarios;
+}
+
+
+
+export{
+    obtenerChiste,
+    obtenerUsuarios
+
+}
+```
+
+
+
+## Crud-provider.js
+
+
+```javascript
+const urlCrud='https://reqres.in/api/users';
+
+const getUsuario=async(id ) => {
+    const response =await fetch(`${urlCrud}/${id}`);
+    const {data}= await response.json();
+
+    return data;
+}
+
+const CrearUsuarios = async(usuario) => {
+    const response = await fetch(urlCrud, {
+        method: 'POST',
+        body: JSON.stringify(usuario),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    //console.log(await response.json());
+    return await response.json();
+}
+
+const ActualizarUsuario = async(id,usuario) => {
+    const response = await fetch(`${urlCrud}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(usuario),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    //console.log(await response.json());
+    return await response.json();
+}
+
+const EliminarUsuario = async(id) => {
+    const response = await fetch(`${urlCrud}/${id}`, {
+        method: 'DELETE'
+    });
+
+    //console.log(await response.json());
+    return (response.ok)?'Borrado':'No se pudo eliminar';
+
+}
+
+
+
+
+
+
+
+export {
+    getUsuario,
+    CrearUsuarios,
+    ActualizarUsuario,
+    EliminarUsuario
+  
+}
+```
+
+
+## Index.js
+
+
+```javascript
+//import { obtenerChiste,obtenerUsuarios } from "./js/http-provider";
+//
+//obtenerChiste().then(console.log);
+
+
+import * as CRUD from './js/crud-provider';
+import { init } from "./js/usuarios-page";
+
+init();
+//obtenerUsuarios().then(console.log);
+
+CRUD.getUsuario(1).then(console.log);
+
+CRUD.CrearUsuarios({
+    name:'jesus',
+    job:'jugador'
+}).then(console.log);
+
+CRUD.ActualizarUsuario(1,{
+    name:'jesus',
+    job:'jugador'
+}).then(console.log);
+
+
+CRUD.EliminarUsuario(1).then(console.log);
 ```
