@@ -129,7 +129,7 @@ npm install @babel/preset-env --save-dev
 
 ```
 
-## Uso de peticion.
+## Uso de peticion para obtener chiste.
 
 Uso de peticion, haciendo uso de try catch.
 
@@ -142,13 +142,13 @@ const obtenerChiste = async() => {
         if(!response.ok ) throw alert('no se pudo realizar la peticion');
 
         const {icon_url, id , value} = await response.json();
-    
+  
         return {
             icon_url, 
             id ,
             value
         };
-        
+    
     } catch (error) {
 
         throw error;
@@ -225,9 +225,7 @@ export const init =()=>{
 }
 ```
 
-
 ## usuarios-page.js
-
 
 ```javascript
 //se llama al evento ObtenerUsuarios 
@@ -320,9 +318,7 @@ export const init = async() => {
 
 ```
 
-
-## Http-Provider-js
-
+## Http-Provider-js para obtener usuario
 
 ```javascript
 const urlUsuarios='https://reqres.in/api/users?page=2';
@@ -348,10 +344,7 @@ export{
 }
 ```
 
-
-
 ## Crud-provider.js
-
 
 ```javascript
 const urlCrud='https://reqres.in/api/users';
@@ -414,9 +407,7 @@ export {
 }
 ```
 
-
 ## Index.js
-
 
 ```javascript
 //import { obtenerChiste,obtenerUsuarios } from "./js/http-provider";
