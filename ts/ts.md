@@ -6,6 +6,8 @@ comando que sirve para generar el archivo tsconfig.json
 tsc --init
 ```
 
+https://www.npmjs.com/package/nodemon
+
 la configuracion que se esta utilizando en el documento tsconfig se puede mostrar en el mismo archivo que se encuentra en esta carpeta.
 
 **los enum se pueden definir con numeros o cadenas de texto**
@@ -37,7 +39,6 @@ se puede compilar de esta manera teniendo en cuenta que el archivo de configurac
 ```
 tsc && node dist/functions.js
 ```
-
 
 **asercion de tipos:**
 
@@ -92,4 +93,107 @@ function printPosition(position:{lat:number, lon?:number|string}) :void {
 }
 
 printPosition({lat:32,lon:'32'}) ;
+
+```
+
+| Interface                                  | clases                                                            |
+| ------------------------------------------ | ----------------------------------------------------------------- |
+| Solo existen en tiempos de compilacion     | existen en timpo de compilacion y durante el tiempo de ejecucion. |
+| solo se usan para la verificacion de tipos | se puede inicializar propiedades e implementar metodos            |
+|                                            | crear instancias de dichas clases                                 |
+
+## ***Que es una interface?***
+
+Es un contrato de codigo,  se define la forma de la data, con la que se va a trabajar.
+
+Se pueden definir propiedades y metodos.
+
+```typescript
+interface Book{
+    id: number;
+    title: string;
+    author: string;
+    coAutor?: string;  
+    //se puede declarar metodos
+    isLoan?:(id:number) => void;
+}
+
+```
+
+
+```typescript
+//usando extends se reutiliza una base. 
+
+interface Persons{
+    id: number,
+    name: string
+}
+
+interface Employee extends Persons{
+    departament: string;
+
+}
+```
+
+
+
+## *Que es una clase?*
+
+Sirven para organizar el codigo.
+
+sirven para encapsulamiento, sin dejar de ser un objeto
+
+teniendo adentro del cuerpo atributos y metodos
+
+toda clase tiene un metodo constructor => que cuando se ejecuta es lo primero que se ejecuta
+
+Access Control Keywords
+
+public => se tiene el acceso en toda la solucion
+
+private => se tiene acceso en un punto especifico de la solucion
+
+protected => se puede acceder a ella pero no se puede editar
+
+```typescript
+//class 
+class Person{
+    public zone = 'san jo';
+    protected city ='mexico';
+    private country = 'hidalgo';
+
+     constructor(){}  
+
+     greet():void {
+        console.log("Hellow");
+  
+     }
+}
+
+class Employees extends Person{
+    //atributos
+    readonly id: number;
+    name: string;
+    departament:string;
+
+    constructor( id: number, name: string, departament:string){ 
+        super();
+        this.id = id;
+        this.name = name;
+        this.departament = departament;
+
+        this.showInfo();
+    }
+
+
+
+    showInfo():void {
+        console.log(`${this.name} ${this.departament}  ${this.city}`)
+    }
+
+
+}
+
+//creado una nueva instancia de la clase employee
+const empleado= new Employees(1,'jesus', 'departament')
 ```
