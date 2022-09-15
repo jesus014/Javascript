@@ -11,10 +11,10 @@ const ObtenerPokemon= async(pokeid) => {
         const pokemonObj = {
             name: responseJson.name,
             base_experience:responseJson.base_experience,
-            img: responseJson.img
+            img: responseJson.sprites.other.dream_world.front_default
 
         }
-
+        console.log(pokemonObj);
         return await pokemonObj;
         
         

@@ -46,6 +46,7 @@ const eventoPoke= async () => {
 const dibujarPokemon= async(pokemon) => {
     console.log(pokemon.name);
     console.log(pokemon.base_experience);
+    console.log(pokemon.img);
     const nombre = pokemon.name
     
     const itemTitle = document.createElement('h5');

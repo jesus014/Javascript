@@ -120,7 +120,6 @@ interface Book{
 
 ```
 
-
 ```typescript
 //usando extends se reutiliza una base. 
 
@@ -134,8 +133,6 @@ interface Employee extends Persons{
 
 }
 ```
-
-
 
 ## *Que es una clase?*
 
@@ -196,4 +193,60 @@ class Employees extends Person{
 
 //creado una nueva instancia de la clase employee
 const empleado= new Employees(1,'jesus', 'departament')
+```
+
+## Generics
+
+codigo reutilizable que funciona con multiples tipos.
+
+se pueden utilizar en funciones interfaces o clases.
+
+
+Se hace una clase generica para que despues se le pase el modelo.
+
+```typescript
+//se hace generica la clase para que despues se le pase el modelo de trabajo de type
+class DataCollection <T extends {id:number, name:string } > implements Data<T> {
+    private items : T[]= [];
+
+    addItem(newItem: T): void{
+        this.items.push(newItem);
+    }
+
+    getItems(): void {
+        return console.log(JSON.stringify(this.items));
+    }
+
+   getNames(): string[] {
+  
+    return this.items.map((item) => item.name );
+
+   }
+//
+    getItemById(id: number): void {
+        return console.log(this.items.find((item : T) => item.id === id));
+    }
+}
+```
+
+Se instancea.
+
+```typescript
+//se instancia la clase DataCollection pasandole el tipo empleado
+const productCollection = new DataCollection<Employe>();
+```
+
+se utilizan los metodos declarados en la clase.
+
+```typescript
+//se crea un objeto que sera pasado en en el metodo previamente instanciado
+const newDatas= {
+    id:1,
+    name: 'Employ',
+    roles:'ew'
+}  
+//se utilizan los metodos declarados en la clase.
+productCollection.addItem(newDatas);
+productCollection.getItems();
+
 ```
