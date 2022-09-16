@@ -11,9 +11,10 @@ let divtitulo, ulLista;
 
 const crearHtmlPokemon=()=>{
     const html=`
-        <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
+          <div>
           
+          </div>
         </div>
         <ul class="list-group list-group-flush">
 
@@ -25,6 +26,8 @@ const crearHtmlPokemon=()=>{
     //divPokemon.style.add('width: 18rem');
     divPokemon.innerHTML=html;
     body.append(divPokemon);
+
+    //imgFoto=document.querySelector('#foto');
 }
 
 
@@ -44,17 +47,32 @@ const eventoPoke= async () => {
 
 
 const dibujarPokemon= async(pokemon) => {
-    console.log(pokemon.name);
-    console.log(pokemon.base_experience);
-    console.log(pokemon.img);
+
     const nombre = pokemon.name
-    
-    const itemTitle = document.createElement('h5');
+    const foto= pokemon.img;
+    const experiencia =pokemon.base_experience;
+    const hp =pokemon.hp;
+    const ataque = pokemon.ataque;
+    const defensa=pokemon.defensa;
+
+    const itemTitle = document.createElement('div');
     console.log(itemTitle);
-    itemTitle.innerHTML=`<b> ${nombre} </b>:  ${nombre}`;
+    itemTitle.innerHTML=`<b> Nombre del Pokemon </b>:  ${nombre} <br>
+                         <b>Experiencia: </b> ${experiencia}  <b>Vida: </b> ${hp} Px  <br>
+                         <b>Ataque: </b> ${ataque}  <b>defensa: </b> ${defensa} Puntos  <br>
+
+    `;
+    
     itemTitle.classList.add('card-title');
+    itemTitle.classList.add('center');
     divtitulo.append(itemTitle);
     
+
+    const itemImg =document.createElement('div');
+    console.log(itemImg);
+    itemImg.innerHTML=`<img src="${foto}" class="card-img-top" alt="..." id="foto">`
+    itemImg.classList.add('card-img-top');
+    divtitulo.append(itemImg);
 }
 
 export const init = ()=>{
