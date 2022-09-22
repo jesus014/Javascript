@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Estudiante = void 0;
 const Humano_1 = require("./Humano");
 class Estudiante extends Humano_1.Humano {
     /**
@@ -16,4 +17,4 @@ class Estudiante extends Humano_1.Humano {
         console.log(`${this.carrera}`);
     }
 }
-const nuevoEstudiante = new Estudiante('carrera', 'extends', 2);
+exports.Estudiante = Estudiante;

@@ -14,10 +14,12 @@ class Estudiante extends Humano{
         this.showInfo();
         
     }
-    showInfo() {
+    showInfo?() {
         console.log(`${this.carrera}`)
     }
 }
 
-const nuevoEstudiante = new Estudiante('carrera','extends',2);
 
+export {
+    Estudiante
+}
