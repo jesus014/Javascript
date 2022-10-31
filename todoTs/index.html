@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+        System.config({
+            paths:{
+                'mustache':'node_modules/mustache/mustache'
+            }, 
+            meta:{
+                format:'cjs'
+            },
+            packages:{
+                '.':{
+                defaultExtension:'js'
+                }
+            }
+        });
+        System.import('./js/app.js');
+    </script>
+</body>
+</html>
